@@ -82,9 +82,9 @@ import {
 import type { EntryRow } from '@/data/types'
 
 const meta = moduleMeta('artifact')
-const columns = ["器物编号", "出土探方", "出土层位", "器物质地", "器物类型", "完残程度", "登记人", "登记状态"]
+const columns = ["器物编号", "出土探方", "出土层位", "器物质地", "器物类型", "完残程度", "登记人", "登记状态", "所在架位"]
 const actions = ["完成清洗", "分配编号", "办理入库"]
-const statuses = ["已采集", "已清洗", "已编号", "已入库", "借出展示"]
+const statuses = ["已采集", "已清洗", "已编号", "已入库", "借出展示", "封存中"]
 const stats = [{"label": "遗物总数", "value": 0}, {"label": "已入库数", "value": 0}, {"label": "待清洗数", "value": 0}]
 
 const rows = ref<EntryRow[]>([])
