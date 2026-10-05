@@ -65,6 +65,10 @@ npm run build
 
 - 每个模块的页面在 `frontend/src/views/<模块>/index.vue`，页面只负责渲染，读写统一走
   `frontend/src/api/local-service.ts`。
+- 库房管理（`storage`）有专用服务 `frontend/src/api/storage-service.ts`：库位容量视图、
+  待入藏/已满/临时封存分栏、存放/封存/清理的读写都在这里；业务规则本身放在
+  `frontend/src/data/storage-ops.ts`（纯函数，不碰 localStorage）。历史架位缺层数按 1 层、
+  容纳件数按每层 20 件回填；入藏申请带架位版本号，多批同时申请同一架位时只有一笔能成功。
 - 字段、状态、动作与流转目标集中在 `frontend/src/data/modules.ts`；示例数据在
   `frontend/src/data/seed.ts`。
 - 状态流转只允许在 `local-service.ts` 里改，页面组件不做业务判断。

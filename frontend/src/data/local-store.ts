@@ -40,6 +40,12 @@ export function listRows(key: string): EntryRow[] {
   return allRows()[key] ?? []
 }
 
+// 丢掉内存缓存，下次读取时重新过一遍 localStorage：
+// 别的浏览器标签页刚写入的改动，这里能立刻看到（入藏并发控制依赖这一点）。
+export function refreshRows(): void {
+  cache = null
+}
+
 export function saveRows(key: string, rows: EntryRow[]): void {
   const next = { ...allRows(), [key]: rows }
   cache = next
